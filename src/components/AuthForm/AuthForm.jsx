@@ -6,6 +6,7 @@ import GoogleAuth from './GoogleAuth'
 
 const AuthForm = () => {
   const [isLogin, setIslogin] = useState(true)
+  console.log('working');
 
   return (
     <>
