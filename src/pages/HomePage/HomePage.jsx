@@ -1,9 +1,19 @@
 import { Box, Container, Flex } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import FeedPosts from '../../components/FeedPosts/FeedPosts'
 import SuggestedUsers from '../../components/SuggestedUsers/SuggestedUsers'
+import { useNavigate } from 'react-router-dom'
 
-const HomePage = () => {
+const HomePage = ({authUser}) => {
+
+  const navigate = useNavigate()
+
+  if (!authUser) {
+    useEffect(() => {
+      navigate('/auth');
+    }, [authUser]);
+  }
+
   return (
     <Container maxW={"container.lg"}>
       <Flex gap={20}>

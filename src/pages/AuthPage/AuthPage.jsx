@@ -1,8 +1,18 @@
 import { Box, Container, Flex, Image, VStack } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import AuthForm from '../../components/AuthForm/AuthForm'
+import { useNavigate } from 'react-router-dom'
 
-const AuthPage = () => {
+const AuthPage = ({ authUser }) => {
+
+  const navigate = useNavigate()
+
+  if (authUser) {
+    useEffect(() => {
+      navigate('/');
+    }, [authUser]);
+  }
+
   return (
     <Flex minH={"100vh"} justifyContent={"center"} alignItems={"center"} px={4}>
       <Container maxW={"container.md"} padding={0}>
